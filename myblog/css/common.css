@@ -485,8 +485,13 @@ body{
 .zonhe-li-imgbox img:hover{
     transform: scale(1.2);
 }
-.lable-box{
-    width: 66%;
+
+.self_def_style {
+    font-size:15px;
+}
+
+.lable-box {
+    width: 80%;
     height: 36px;
     line-height: 36px;
     font-size: 13px;
@@ -508,8 +513,8 @@ body{
     margin-top: 10px;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
-    overflow: hidden;
+    -webkit-line-clamp: 100; /*box内最多显示的行数*/
+    overflow: auto;
 }
 .zonhe-param{
     color: #cccccc;
