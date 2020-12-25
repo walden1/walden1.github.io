@@ -76,21 +76,20 @@
                             <div class="zonhe-libox layui-row subject-second-color pane-radius">
                                 <div class="zonheimg-box-parent layui-col-md3">
                                     <div class="zonhe-li-imgbox pane-radius">
-                                        <img src="imgs/carousel2.jpg" />
+                                        <img src="imgs/data/1.jpg" />
                                         <div class="lable-box">Dynamic 3D reconstruction</div>
                                     </div>
                                 </div>
                                 <div class="zonheimg-box-parent2 layui-col-md9">
                                     <div class="zonhe-lititle layui-row layui-elip">
-                                        <h3><a href="#">1.	DynamicFusion</a></h3>
+                                        <h3><a href="#">DynamicFusion</a></h3>
                                     </div>
                                     <div class="zonhe-limsg layui-row">
                                         <pre class="self_def_style">
-·可进行动态三维重建，基于构建的规范 3D模型，将物体(或人)的动态变化通过变形场表示
-·问题抽象为非线性最小二乘问题，设计能量方程，构建残差项及Jacobian矩阵，进而优化目标参数 
-·涉及体素融合、渲染顶点图以及节点图如何扩充及变形等
-
+Based on the canonical 3D model, the dynamic changes of objects can be represented by warp field.
                                         </pre>
+
+                                        <a href="imgs/data/1.dynamicfusion1.avi" style="font-size:18px;">video download</a>
                                     </div>
                                 </div>
                             </div>
@@ -99,26 +98,22 @@
                             <div class="zonhe-libox layui-row subject-second-color pane-radius">
                                 <div class="zonheimg-box-parent layui-col-md3">
                                     <div class="zonhe-li-imgbox pane-radius">
-                                        <img src="imgs/carousel2.jpg" />
-                                        <div class="lable-box">Dynamic 3D reconstruction</div>
+                                        <img src="imgs/data/2.smpl_fit_error.jpg" />
+                                        <div class="lable-box">Smpl</div>
                                     </div>
                                 </div>
                                 <div class="zonheimg-box-parent2 layui-col-md9">
                                     <div class="zonhe-lititle layui-row layui-elip">
-                                        <h3><a href="#">2.	Smpl人体模型姿态恢复(形状及姿态)</a></h3>
+                                        <h3><a href="#">Smpl Model Fitting</a></h3>
                                     </div>
                                     <div class="zonhe-limsg layui-row">
 
                                         <pre class="self_def_style">
-·将smpl人体模型拟合至采集深度数据
-·依旧抽象为优化问题，设计添加数据项、约束项(GMM高斯混合模型,约束人体朝着一个中间姿态)，其中(链式关节)求Jacobian较为麻烦
-·相关项目
-    a)	body reshape:通过调整pca基来控制身体形状
-        pca基与身体各部位语义对应关系、背景inpainting
-    b)	人体数据库构建
-        在Smpl拟合的基础加入非刚性注册，重新提取身体形状pca基
-        优化过程中加入人体对称项(人体对称性)、对应点权重项等.
+Fitting the smpl human body model to the image data and optimizing the human body parameters.
                                         </pre>
+
+                                        <a href="imgs/data/2.smpl_fit.wmv" style="font-size:18px;">samples</a>
+
                                     </div>
                                 </div>
                             </div>
@@ -127,54 +122,89 @@
                             <div class="zonhe-libox layui-row subject-second-color pane-radius">
                                 <div class="zonheimg-box-parent layui-col-md3">
                                     <div class="zonhe-li-imgbox pane-radius">
-                                        <img src="imgs/carousel2.jpg" />
-                                        <div class="lable-box">Dynamic 3D reconstruction</div>
+                                        <img src="imgs/data/3.db.jpg" />
+                                        <div class="lable-box">DoubleFusion</div>
                                     </div>
                                 </div>
                                 <div class="zonheimg-box-parent2 layui-col-md9">
                                     <div class="zonhe-lititle layui-row layui-elip">
-                                        <h3><a href="#">3.	DoubleFusion(cpu/gpu)人体重建(sig2018)</a></h3>
+                                        <h3><a href="#">Body Reconsturction</a></h3>
                                     </div>
                                     <div class="zonhe-limsg layui-row">
                                         <pre class="self_def_style">
-·支持人体快速运动情况下建模，流程复杂
-    a) 需要构建两套变形流程(节点图及smpl变形)，并需要将两套流程建立关联，进而联合优化获取优化参数
-    b) 两套变形流程中对应关系寻找策略，变形过程，目标函数各能量项，优化过程(binding项)
-·Gpu版本难点较多复杂
-    a) 不规则稀疏矩阵(JJ)的存储方式(csr)及相关操作(spmv)
-    b) 各能量数据项的构建，原子冲突解决,稀疏矩阵非零索引查找方式(通过排序寻找对node Block6*6影响的全部对应点集合)
-    c) Gpu下Mesh结构的存储及操作(opengl vbo与cuda交互)
-
+Two pipelines of deformation processes (node graph and smpl deformation) need to be built to support the modeling of human rapid motion.
+Then the optimal parameters are obtained by joint optimization.
                                         </pre>
+
+                                        <a href="imgs/data/3.cpu_k1.avi" style="font-size:18px;">samples</a>
                                     </div>
                                 </div>
                             </div>
                         </li>
                         <li>
                             <div class="zonhe-libox layui-row subject-second-color pane-radius">
-                            </div>
-                            <div class="zonhe-libox layui-row subject-second-color pane-radius">
+                                <div class="zonheimg-box-parent layui-col-md3">
+                                    <div class="zonhe-li-imgbox pane-radius">
+                                        <img src="imgs/data/4.IBR.jpg" />
+                                        <div class="lable-box">Image-based Rendering</div>
+                                    </div>
+                                </div>
+                                <div class="zonheimg-box-parent2 layui-col-md9">
+                                    <div class="zonhe-lititle layui-row layui-elip">
+                                        <h3><a href="#">View Synthesis</a></h3>
+                                    </div>
+                                    <div class="zonhe-limsg layui-row">
+                                        <pre class="self_def_style">
+Synthesizing novel view image based on input images and 3D model proxy.
+                                        </pre>
+
+                                        <a href="imgs/data/4.IBR1.mkv" style="font-size:18px;">demo1</a>&nbsp;
+                                        <a href="imgs/data/4.IBR2.wmv" style="font-size:18px;">demo2</a>
+                                    </div>
+                                </div>
                             </div>
                         </li>
-                        
+
+                        <li>
+                            <div class="zonhe-libox layui-row subject-second-color pane-radius">
+                                <div class="zonheimg-box-parent layui-col-md3">
+                                    <div class="zonhe-li-imgbox pane-radius">
+                                        <img src="imgs/data/5.hand_fitting.jpg" />
+                                        <div class="lable-box">Hand Deformation</div>
+                                    </div>
+                                </div>
+                                <div class="zonheimg-box-parent2 layui-col-md9">
+                                    <div class="zonhe-lititle layui-row layui-elip">
+                                        <h3><a href="#">Hand Deformation</a></h3>
+                                    </div>
+                                    <div class="zonhe-limsg layui-row">
+                                        <pre class="self_def_style">
+It mainly involves the research of hand deformation methods.
+                                        </pre>
+
+                                        <a href="imgs/data/5.hand_fitting.wmv" style="font-size:18px;">demo</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="zonhe-libox layui-row subject-second-color pane-radius">
+                            </div>
+
+                        </li>
+
                     </ul>
                 </div>
             </div>
+            
             <div class="youqing-url layui-row">
                 <div class="item-title-row layui-row row-align">
                     <div class="layui-col-md10 row-align font-size2">
                         <div class="left-icon"></div>
-                        <span class="font-bold">友情链接</span>
+                        <span class="font-bold">More</span>
                     </div>
-                    <div class="layui-col-md2 text-align-right text-underline only-pointer font-size1 font-color3">
-                        <a href="#">交换链接+</a>
-                    </div>
-                </div>
-                <div class="url-box layui-row">
-                    <a href="http://www.jufanshare.com" target="_blank">聚繁</a>
-                    <a href="http://ibeetl.com" target="_blank">beetl</a>
-                    <a href="https://www.layui.com/" target="_blank">layui</a>
-                </div>
+                </div>                
             </div>
         </div>
 
